@@ -112,13 +112,9 @@ provider "aws" {
  
  # data source 
  data "aws_vpc" "main" {
-  filter {
-    name = "tag:Name"
-    values = ["Jumphost-vpc"]
+  tags = {
+    Name = "Jumphost-vpc"  # Specify the name of your existing VPC
   }
-  #tags = {
- #   Name = "Jumphost-vpc"  # Specify the name of your existing VPC
- # }
 }
 
 data "aws_subnet" "subnet-1" {
